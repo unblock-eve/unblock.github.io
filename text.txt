@@ -1,0 +1,19 @@
+i will provide you with a list of questions, and i would like you to number, and answer them. give the answer choices aswell (a,b,c,d) so for example if the answer is b and b's answer is "red", i want you to say B: red
+
+I would like you to provide a full answer sheet at the end, for exmaple:
+{
+question 1: answer choice, answer
+question 2: answer choice, answer
+and so on
+]
+
+for answers with multiple choices, answer it in this format:
+{
+question1: correctchoice1,correctchoice2, correctchoice3
+
+example of a real multiple answer question:
+question1: a,b,d,e - 
+]
+
+
+I will now give you the questions.

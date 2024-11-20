@@ -1,0 +1,53 @@
+	<script>
+    // Create the audio object and set it to loop
+    const audio = new Audio('spookys.mp3');
+    audio.loop = true;
+
+    // Add an event listener to the document for clicks
+    document.addEventListener('click', function () {
+        // Play the audio (will loop indefinitely)
+        if (audio.paused) {
+            audio.play();
+        }
+
+        // Request pointer lock
+        document.body.requestPointerLock = document.body.requestPointerLock || 
+                                           document.body.mozRequestPointerLock || 
+                                           document.body.webkitRequestPointerLock;
+        if (document.body.requestPointerLock) {
+            document.body.requestPointerLock();
+        } else {
+            console.error("Pointer lock is not supported in this browser.");
+        }
+    });
+
+    // Listen for pointer lock changes
+    document.addEventListener('pointerlockchange', pointerLockChange, false);
+    document.addEventListener('mozpointerlockchange', pointerLockChange, false);
+    document.addEventListener('webkitpointerlockchange', pointerLockChange, false);
+
+    function pointerLockChange() {
+        if (document.pointerLockElement === document.body || 
+            document.mozPointerLockElement === document.body || 
+            document.webkitPointerLockElement === document.body) {
+            console.log('Pointer is locked');
+        } else {
+            console.log('Pointer is unlocked');
+        }
+    }
+</script>
+<script>
+    // Disable all buttons on the page
+    document.addEventListener('DOMContentLoaded', function () {
+        // Select all buttons
+        const buttons = document.querySelectorAll('button');
+        
+        // Add an event listener to each button to prevent clicking
+        buttons.forEach(button => {
+            button.addEventListener('click', function (event) {
+                event.preventDefault(); // Prevent default action
+                event.stopPropagation(); // Stop event from propagating
+            });
+        });
+    });
+</script>
